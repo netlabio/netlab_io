@@ -2,6 +2,15 @@ var fired = false;
 var fired_second = false;
 var removed = false;
 var fired_once = false;
+
+function clearForm() {
+  $('#name-text').val() = '';
+  $('#phone-input').val() = '';
+  $('#email-input').val() = '';
+  $('#subject-input').val() = '';
+  $('#body').val() = '';
+}
+
 window.onbeforeunload = function(){ window.scrollTo(0,0); }
   jQuery(document).ready(function() {
 
@@ -65,10 +74,13 @@ window.onbeforeunload = function(){ window.scrollTo(0,0); }
         dataType: "json",
         cache: false,
         success: function(response) {
+          console.log(response);
+          clearForm();
 
         },
         error: function(response) {
-
+          console.log(response);
+          clearForm();
         }
       })
 
